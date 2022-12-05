@@ -11,7 +11,7 @@ block_image_width = 5;
 block_image_height = 5;
 
 function load_img(){
-	fabric.Image.fromURL("golf-h1.png", function (Img)) {
+	fabric.Image.fromURL("golf-h.png", function (Img) {
 		hole_obj = Img;
 		hole_obj.scaleToWidth(50);
 		hole_obj.scaleToHeight(50);
@@ -21,14 +21,14 @@ function load_img(){
 		});
 		canvas.add(hole_obj);
 		
-	}
+	});
 	// write code to Upload golf image on the canvas
 	new_image();
 }
 
 function new_image()
 {
-	fabric.Image.fromURL("ball.png", function(Img)) {
+	fabric.Image.fromURL("ball.png", function(Img) {
 		ball_obj = Img;
 		ball_obj.scaleToWidth(50);
 		ball_obj.scaleToHeight(50);
@@ -36,8 +36,9 @@ function new_image()
 			top:ball_y,
 			left:ball_x
 		});
-	}
-	canvas.add(ball_obj);
+		canvas.add(ball_obj);
+	});
+	
 	// write code to Upload ball image on canvas
 }
 
@@ -52,7 +53,7 @@ function my_keydown(e)
 	display "GAME OVER!!!" 
 	and make canvas border 'red'. */
 	if((ball_x==hole_x)&&(ball_y==hole_y)) {
-		Canvas.remove(ball_obj);
+		canvas.remove(ball_obj);
 		document.getElementById("hd3").innerHTML="You have Hit the Goal!!!"
 		document.getElementById("myCanvas").style.borderColor="red";
 	}
